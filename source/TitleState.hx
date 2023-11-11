@@ -86,6 +86,10 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
+		
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
@@ -233,7 +237,7 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 		
-		backdrop = new FlxBackdrop(Paths.image('title/grid'), XY, 0, 0);
+		backdrop = new FlxBackdrop(Paths.image('title/grid'), 0, 0);
 		// backdrop = new FlxBackdrop(Paths.image('title/grid'), 1, 1, true, true, 1, 1);
 		backdrop.velocity.set(300, 0);
 		backdrop.screenCenter(X);

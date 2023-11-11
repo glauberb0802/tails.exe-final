@@ -144,6 +144,10 @@ class MainMenuState extends MusicBeatState
 		}
 		#end
 		*/
+		
+		#if android
+                addVirtualPad(LEFT_RIGHT, A_B);
+                #end
 
 		super.create();
 	}
@@ -276,7 +280,7 @@ class MainMenuState extends MusicBeatState
 											FreeplayState.destroyFreeplayVocals();
 										case 'freeplay':
 											MusicBeatState.switchState(new FreeplayState());
-										#if MODS_ALLOWED
+										#if desktop 
 										case 'mods':
 											MusicBeatState.switchState(new ModsMenuState());
 										#end
